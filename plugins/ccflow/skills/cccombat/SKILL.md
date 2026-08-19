@@ -17,12 +17,12 @@ Two peer Claude instances verify, discuss, or challenge each other on a technica
 
 ## Document storage
 
-All documents live in `.ccbus/cccombat/`.
+All documents live in `.ccflow/cccombat/`.
 
 Filename format:
 
 ```
-.ccbus/cccombat/<topic>-<YYYY-MM-DD>-seq-<N>-<author>.md
+.ccflow/cccombat/<topic>-<YYYY-MM-DD>-seq-<N>-<author>.md
 ```
 
 | Field | Description |
@@ -32,7 +32,7 @@ Filename format:
 | `seq-1` | First message; the peer's reply uses `seq-2`; the next reply `seq-3`, and so on |
 | `author` | Author pane index, format `tmux-<session>-<window>.<pane>`, e.g. `tmux-main-2.4` |
 
-Messages in the same thread are chained by seq number. Before writing, run `ls .ccbus/cccombat/<topic>-<date>-seq-*-*.md` to find the latest seq.
+Messages in the same thread are chained by seq number. Before writing, run `ls .ccflow/cccombat/<topic>-<date>-seq-*-*.md` to find the latest seq.
 
 ## Document format
 
@@ -90,7 +90,7 @@ peer_target=<target to pass to the send/idle scripts>
 
 If no peer is found, the output is `no_peer_found`; fall back to:
 
-1. **Infer from the current thread's documents**: `ls .ccbus/cccombat/<topic>-<date>-seq-*-*.md`, read the latest document's front-matter, and take the `author` field (a document from the peer) or `recipient` field (your own document) as `peer_pane`.
+1. **Infer from the current thread's documents**: `ls .ccflow/cccombat/<topic>-<date>-seq-*-*.md`, read the latest document's front-matter, and take the `author` field (a document from the peer) or `recipient` field (your own document) as `peer_pane`.
 2. **Infer from a received `/cccombat` message**: the sender's document filename contains the identifier; use it directly as `peer_pane`.
 3. **Derive `peer_target`**: replace the first `-` in `peer_pane` with `:` (e.g. `main-5.1` → `main:5.1`).
 
@@ -119,7 +119,7 @@ Output:
 
 ### Step 2: Write and send
 
-1. Write the document to `.ccbus/cccombat/<topic>-<date>-seq-<N>-<author>.md`
+1. Write the document to `.ccflow/cccombat/<topic>-<date>-seq-<N>-<author>.md`
 2. **Run the Step 1.5 idle wait** (the document is already on disk; this is just waiting for the right moment to send)
 3. When notifying the peer, **don't send just the file path** — summarize the point in one line so the peer knows what to do at a glance:
 

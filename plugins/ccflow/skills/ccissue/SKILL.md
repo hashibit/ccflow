@@ -1,11 +1,11 @@
 ---
 name: ccissue
-description: Write bugs, design flaws, or technical debt found in the current discussion into a structured issue document in the project's .ccbus/ccissue/ directory.
+description: Write bugs, design flaws, or technical debt found in the current discussion into a structured issue document in the project's .ccflow/ccissue/ directory.
 ---
 
 # ccissue
 
-Write bugs, design flaws, or technical debt found in the current discussion into a structured issue document, stored in the project's `.ccbus/ccissue/` directory (`mkdir -p` first if it doesn't exist).
+Write bugs, design flaws, or technical debt found in the current discussion into a structured issue document, stored in the project's `.ccflow/ccissue/` directory (`mkdir -p` first if it doesn't exist).
 
 `<skill_dir>` is the directory containing this SKILL.md. Resolve it from your context, or from the project root with:
 
@@ -24,7 +24,7 @@ User says:
 ## File naming
 
 ```
-.ccbus/ccissue/issue-{YYYY-MM-DD}-{author}-{slug}.md
+.ccflow/ccissue/issue-{YYYY-MM-DD}-{author}-{slug}.md
 ```
 
 - Date is today
