@@ -26,8 +26,8 @@ done
 
 mkdir -p "$SKILLS_DIR"
 
-# Discover skills: direct subdirectories containing SKILL.md (case-insensitive).
-for skill_dir in "$REPO_ROOT"/*/; do
+# Discover skills: plugin skill dirs containing SKILL.md (case-insensitive).
+for skill_dir in "$REPO_ROOT"/plugins/*/skills/*/; do
     if [[ ! -f "$skill_dir/SKILL.md" && ! -f "$skill_dir/skill.md" ]]; then
         continue
     fi

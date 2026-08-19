@@ -1,0 +1,9 @@
+{
+  "name": "ccflow",
+  "version": "1.0.0",
+  "description": "Cross-instance collaboration skills: cccombat (peer verification) and ccissue (issue capture)",
+  "author": {
+    "name": "Hashi Bitton",
+    "email": "nickelchen0101@gmail.com"
+  }
+}

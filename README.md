@@ -1,4 +1,4 @@
-# ccteam
+# ccflow
 
 Two Claude Code skills for cross-instance collaboration inside one tmux window:
 
@@ -15,6 +15,21 @@ Two Claude Code skills for cross-instance collaboration inside one tmux window:
 
 ## Install
 
+### Via plugin marketplace (recommended)
+
+Both skills ship in a single plugin `ccflow`, served by this repo's marketplace. Once per machine:
+
+```
+/plugin marketplace add <this-repo-url>   # e.g. owner/ccflow (GitHub shorthand) or a full git URL
+/plugin install ccflow@ccflow
+```
+
+- Skills are invoked as `/ccflow:cccombat` and `/ccflow:ccissue` (namespaced); bare `/cccombat` / `/ccissue` also resolve unless a same-named command already exists (requires Claude Code v2.1.216+).
+- Updates: bump `version` in `plugins/ccflow/.claude-plugin/plugin.json`, push, then teammates run `/plugin marketplace update ccflow` — or enable auto-update for the marketplace in `/plugin` (off by default for non-Anthropic marketplaces).
+- Private repo note: teammates need `gh auth setup-git` (or another git credential helper) so background updates can `git pull`. If the GitHub shorthand clones over SSH and that fails, set `CLAUDE_CODE_PLUGIN_PREFER_HTTPS=1`.
+
+### Via symlink (offline / non-git fallback)
+
 Skills resolve their own scripts relative to the SKILL.md location, so they work from any skills directory (user level, project level, or custom):
 
 ```bash
@@ -23,9 +38,7 @@ Skills resolve their own scripts relative to the SKILL.md location, so they work
 ./link.sh -f                               # replace existing real dirs with symlinks
 ```
 
-`link.sh` symlinks `cccombat/` and `ccissue/` into the target directory. The `ccteam` directory itself is not a skill — only its two subdirectories are linked.
-
-To uninstall, delete the symlinks from the skills directory.
+`link.sh` symlinks `cccombat/` and `ccissue/` into the target directory. To uninstall, delete the symlinks from the skills directory.
 
 ## Usage
 

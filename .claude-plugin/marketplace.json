@@ -1,0 +1,15 @@
+{
+  "name": "ccflow",
+  "owner": {
+    "name": "Hashi Bitton",
+    "email": "nickelchen0101@gmail.com"
+  },
+  "plugins": [
+    {
+      "name": "ccflow",
+      "source": "./plugins/ccflow",
+      "description": "Cross-instance collaboration skills: cccombat (peer verification) and ccissue (issue capture)",
+      "version": "1.0.0"
+    }
+  ]
+}
